@@ -3,7 +3,14 @@ import app from "./app";
 import { AppDataSource } from "./config/database";
 import dotenv from "dotenv";
 
-dotenv.config();
+dotenv.config({
+  override: false,
+});
+
+console.log("ENV CHECK:", {
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+});
 
 const PORT = process.env.PORT || 5000;
 
