@@ -1,7 +1,4 @@
 import { Pool } from "pg";
-import dotenv from "dotenv";
-
-dotenv.config();
 
 const pool = new Pool({
   host: process.env.DB_HOST,
@@ -10,7 +7,7 @@ const pool = new Pool({
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
   ssl: {
-    rejectUnauthorized: false, // required for Render
+    rejectUnauthorized: false,
   },
 });
 

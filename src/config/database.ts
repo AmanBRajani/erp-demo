@@ -3,11 +3,9 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const isDocker = process.env.RUNNING_IN_DOCKER === "true";
-
 export const AppDataSource = new DataSource({
   type: "postgres",
-  host: isDocker ? "db" : "localhost",
+  host: process.env.DB_HOST,
   port: Number(process.env.DB_PORT),
   username: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
